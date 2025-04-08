@@ -200,8 +200,13 @@ export function TermList({ searchQuery, filter }: TermListProps) {
                       <X className="h-5 w-5" />
                     </button>
                   )}
+
                   <button
-                    onClick={() => deleteTerm(term.id)}
+                    onClick={() => {
+                      if (window.confirm('Are you sure you want to delete this term?')) {
+                        deleteTerm(term.id);
+                      }
+                    }}
                     className="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200"
                     title="Delete term"
                   >
